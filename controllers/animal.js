@@ -12,11 +12,11 @@ var AnimalController = {
 	},
 
 	show: function(req, res){
-    Animal.findById({},function(err, userLogado){
-      if err
-        res(err);
-      res(userLogado);
-    });
+	    // Animal.findById({},function(err, userLogado){
+	    //   if err
+	    //     res(err);
+	    //   res(userLogado);
+	    // });
 
 		Animal.findById(req.params.id, function(err, animal){
 			if(err)
