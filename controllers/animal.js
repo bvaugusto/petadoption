@@ -1,9 +1,9 @@
-var Animal = require('./../modules/animal');
+var Animal = require('./../models/animal');
 
 var AnimalController = {
 	
 	index: function(req, res){
-		Animal.find({}, function(err, user){
+		Animal.find({}, function(err, animal){
 			if(err)
 				res({err: 'Não foi possível retornar os dados do animal!'});
 			else
@@ -12,11 +12,17 @@ var AnimalController = {
 	},
 
 	show: function(req, res){
-		Animal.findById(req.params.id, function(err, user){
+    Animal.findById({},function(err, userLogado){
+      if err
+        res(err);
+      res(userLogado);
+    });
+
+		Animal.findById(req.params.id, function(err, animal){
 			if(err)
 				res({err: 'Não foi possível retornar os dados do animal!'});
 			else
-				res(user);
+				res(animal);
 		});
 	},
 
@@ -44,40 +50,40 @@ var AnimalController = {
 			affectionate: affectionate,
 			temporaryPlace: temporaryPlace,
 			createdDate: new Date()
-	}).save(function(err, user){
+	}).save(function(err, animal){
 			if(err)
 				res({err: 'Não foi possível retornar os dados do animal!'});
 			else
-				res(user);
+				res(animal);
 		});
 	},
 	
 	update: function(req, res){
-		Animal.findById(req.params.id, function(err, user){
+		Animal.findById(req.params.id, function(err, animal){
 			if(err)
 				res({err: 'Não foi possível retornar os dados do animal!'});
 			
 
-			animal.save(function(err, user){
+			Animal.save(function(err, animal){
 				if(error)
 					callback({error: 'Não foi possível atualizar o usuário!'});
 				else
-					callback(user);
+					callback(Animal);
 			});
 		});
 	},
 
 	patch: function(req, res){
-		Animal.find({}, function(err, user){
+		Animal.find({}, function(err, animal){
 			if(err)
 				res({err: 'Não foi possível retornar os dados do animal!'});
 			else
-				res(user);
+				res(animal);
 		});
 	},
 	
 	destroy: function(req, res){
-		Animal.findById(req.params.id, function(err, user){
+		Animal.findById(req.params.id, function(err, animal){
 			if(err){
 				res({err: 'Não foi possível retornar os dados do animal!'});
 			}else{
