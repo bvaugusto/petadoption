@@ -1,7 +1,7 @@
 var Animal = require('./../models/animal');
 
 var AnimalController = {
-	
+	// teste teste 2
 	index: function(req, res){
 		Animal.find({}, function(err, animal){
 			if(err)
