@@ -1,7 +1,7 @@
 var Animal = require('./../modules/animal');
 
 var AnimalController = {
-	
+	// teste
 	index: function(req, res){
 		Animal.find({}, function(err, user){
 			if(err)
